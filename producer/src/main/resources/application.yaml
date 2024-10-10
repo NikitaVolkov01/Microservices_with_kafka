@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+
+  application:
+    name: kafka-producer-1
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Kafka_demo_db
+    username: postgres
+    password: 8545
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        hbm2ddl:
+          auto: validate
+    show-sql: true
+
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
